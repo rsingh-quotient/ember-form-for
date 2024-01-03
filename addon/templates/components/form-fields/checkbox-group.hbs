@@ -1,28 +1,28 @@
-{{#form-field propertyName
+{{#form-field this.propertyName
     tagName="fieldset"
     class="checkbox-group"
-    classNames=fieldClasses
-    disabled=disabled
-    errorClasses=errorClasses
-    hintClasses=hintClasses
-    inputClasses=inputClasses
-    labelClasses=labelClasses
-    object=object
-    hint=hint
-    form=form
-    label=label as |f|}}
-  {{form-label f.labelText required=required tagName="legend"}}
+    classNames=this.fieldClasses
+    disabled=this.disabled
+    errorClasses=this.errorClasses
+    hintClasses=this.hintClasses
+    inputClasses=this.inputClasses
+    labelClasses=this.labelClasses
+    object=this.object
+    hint=this.hint
+    form=this.form
+    label=this.label as |f|}}
+  {{form-label f.labelText required=this.required tagName="legend"}}
 
   <ul>
-    {{#each options as |option|}}
+    {{#each this.options as |option|}}
       {{form-fields/checkbox-group/option
-          object=object
-          propertyName=propertyName
+          object=this.object
+          propertyName=this.propertyName
           option=option
           update=(action "updateSelection" option)
-          disabled=disabled
-          dir=dir
-          lang=lang
+          disabled=this.disabled
+          dir=this.dir
+          lang=this.lang
           value=option
       }}
     {{/each}}

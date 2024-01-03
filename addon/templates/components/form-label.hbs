@@ -1,6 +1,6 @@
 {{#if hasBlock}}
   {{yield}}
 {{else}}
-  {{label}}
+  {{this.label}}
 {{/if}}
-{{#if required}}<span class="star">*</span>{{/if}}
+{{#if this.required}}<span class="star">*</span>{{/if}}

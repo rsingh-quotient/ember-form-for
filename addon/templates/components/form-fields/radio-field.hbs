@@ -1,31 +1,31 @@
-{{#form-field propertyName
+{{#form-field this.propertyName
     class="radio-field"
-    classNames=fieldClasses
-    errorClasses=errorClasses
-    hintClasses=hintClasses
-    inputClasses=inputClasses
-    labelClasses=labelClasses
-    object=object
-    hint=hint
-    form=form
-    label=labelText
-    control=control
-    update=(action update) as |f|}}
-  {{#f.label required=required}}
+    classNames=this.fieldClasses
+    errorClasses=this.errorClasses
+    hintClasses=this.hintClasses
+    inputClasses=this.inputClasses
+    labelClasses=this.labelClasses
+    object=this.object
+    hint=this.hint
+    form=this.form
+    label=this.labelText
+    control=this.control
+    update=(action this.update) as |f|}}
+  {{#f.label required=this.required}}
     {{f.control
-        option=value
-        accesskey=accesskey
-        autocomplete=autocomplete
-        autofocus=autofocus
-        autosave=autosave
-        dir=dir
-        disabled=disabled
-        hidden=hidden
-        lang=lang
-        list=list
-        required=required
-        tabindex=tabindex
-        title=title
+        option=this.value
+        accesskey=this.accesskey
+        autocomplete=this.autocomplete
+        autofocus=this.autofocus
+        autosave=this.autosave
+        dir=this.dir
+        disabled=this.disabled
+        hidden=this.hidden
+        lang=this.lang
+        list=this.list
+        required=this.required
+        tabindex=this.tabindex
+        title=this.title
     }}
     {{f.labelText}}
   {{/f.label}}

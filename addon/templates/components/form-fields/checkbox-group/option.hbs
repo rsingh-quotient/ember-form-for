@@ -1,18 +1,18 @@
-{{#form-field propertyName
+{{#form-field this.propertyName
     control="one-way-checkbox"
     tagName="li"
-    object=object
-    formName=formName
-    update=update
+    object=this.object
+    formName=this.formName
+    update=this.update
     as |fc|
 }}
   {{#fc.label}}
-    {{fc.control (one-way-select/contains (get object propertyName) option)
-        disabled=disabled
-        dir=dir
-        lang=lang
-        value=option
+    {{fc.control (one-way-select/contains (get this.object this.propertyName) this.option)
+        disabled=this.disabled
+        dir=this.dir
+        lang=this.lang
+        value=this.option
     }}
-    {{labelText}}
+    {{this.labelText}}
   {{/fc.label}}
 {{/form-field}}

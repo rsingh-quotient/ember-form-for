@@ -1,41 +1,38 @@
 {{#with (hash
-    checkbox-field=(component 'form-fields/checkbox-field' object=object update=update form=form)
-    checkbox-group=(component 'form-fields/checkbox-group' object=object update=update form=form)
-    color-field=(component 'form-fields/color-field' object=object update=update form=form)
-    date-field=(component 'form-fields/date-field' object=object update=update form=form)
-    datetime-local-field=(component 'form-fields/datetime-local-field' object=object update=update form=form)
-    email-field=(component 'form-fields/email-field' object=object update=update form=form)
-    file-field=(component 'form-fields/file-field' object=object update=update form=form)
-    hidden-field=(component 'form-fields/hidden-field' object=object update=update form=form)
-    month-field=(component 'form-fields/month-field' object=object update=update form=form)
-    number-field=(component 'form-fields/number-field' object=object update=update form=form)
-    password-field=(component 'form-fields/password-field' object=object update=update form=form)
-    radio-field=(component 'form-fields/radio-field' object=object update=update form=form)
-    radio-group=(component 'form-fields/radio-group' object=object update=update form=form)
-    range-field=(component 'form-fields/range-field' object=object update=update form=form)
-    search-field=(component 'form-fields/search-field' object=object update=update form=form)
-    select-field=(component 'form-fields/select-field' object=object update=update form=form)
-    tel-field=(component 'form-fields/tel-field' object=object update=update form=form)
-    text-field=(component 'form-fields/text-field' object=object update=update form=form)
-    textarea-field=(component 'form-fields/textarea-field' object=object update=update form=form)
-    time-field=(component 'form-fields/time-field' object=object update=update form=form)
-    url-field=(component 'form-fields/url-field' object=object update=update form=form)
-    week-field=(component 'form-fields/week-field' object=object update=update form=form)
-
-    custom-field=(component 'form-fields/custom-field' object=object update=update form=form)
-
-    reset=(component 'form-controls/reset' reset=(action reset object) form=form)
-    submit=(component 'form-controls/submit' action=(action "submit" object) form=form)
-
-    button=(component 'form-controls/button' form=form)
+    checkbox-field=(component 'form-fields/checkbox-field' object=this.object update=this.update form=this.form)
+    checkbox-group=(component 'form-fields/checkbox-group' object=this.object update=this.update form=this.form)
+    color-field=(component 'form-fields/color-field' object=this.object update=this.update form=this.form)
+    date-field=(component 'form-fields/date-field' object=this.object update=this.update form=this.form)
+    datetime-local-field=(component 'form-fields/datetime-local-field' object=this.object update=this.update form=this.form)
+    email-field=(component 'form-fields/email-field' object=this.object update=this.update form=this.form)
+    file-field=(component 'form-fields/file-field' object=this.object update=this.update form=this.form)
+    hidden-field=(component 'form-fields/hidden-field' object=this.object update=this.update form=this.form)
+    month-field=(component 'form-fields/month-field' object=this.object update=this.update form=this.form)
+    number-field=(component 'form-fields/number-field' object=this.object update=this.update form=this.form)
+    password-field=(component 'form-fields/password-field' object=this.object update=this.update form=this.form)
+    radio-field=(component 'form-fields/radio-field' object=this.object update=this.update form=this.form)
+    radio-group=(component 'form-fields/radio-group' object=this.object update=this.update form=this.form)
+    range-field=(component 'form-fields/range-field' object=this.object update=this.update form=this.form)
+    search-field=(component 'form-fields/search-field' object=this.object update=this.update form=this.form)
+    select-field=(component 'form-fields/select-field' object=this.object update=this.update form=this.form)
+    tel-field=(component 'form-fields/tel-field' object=this.object update=this.update form=this.form)
+    text-field=(component 'form-fields/text-field' object=this.object update=this.update form=this.form)
+    textarea-field=(component 'form-fields/textarea-field' object=this.object update=this.update form=this.form)
+    time-field=(component 'form-fields/time-field' object=this.object update=this.update form=this.form)
+    url-field=(component 'form-fields/url-field' object=this.object update=this.update form=this.form)
+    week-field=(component 'form-fields/week-field' object=this.object update=this.update form=this.form)
+    custom-field=(component 'form-fields/custom-field' object=this.object update=this.update form=this.form)
+    reset=(component 'form-controls/reset' reset=(action this.reset this.object) form=this.form)
+    submit=(component 'form-controls/submit' action=(action "submit" this.object) form=this.form)
+    button=(component 'form-controls/button' form=this.form)
     ) as |formFields|}}
-  {{#each customFormFields as |customFormField|}}
+  {{#each this.customFormFields as |customFormField|}}
     {{form-for/merge-custom-form-field formFields
         name=customFormField.name
         component=(component customFormField.component
-                      object=object
-                      update=update
-                      form=form
+                      object=this.object
+                      update=this.update
+                      form=this.form
                   )
     }}
   {{/each}}
