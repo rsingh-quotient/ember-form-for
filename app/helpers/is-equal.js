@@ -1,8 +1,1 @@
-import Ember from 'ember';
-import isEqual from '../../addon/utils/is-equal';
-
-const {
-  Helper: { helper }
-} = Ember;
-
-export default helper(([a, b]) => isEqual(a, b));
+export { default } from 'ember-form-for/helpers/is-equal';

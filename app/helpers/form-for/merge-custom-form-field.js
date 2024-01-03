@@ -1,11 +1,1 @@
-import Ember from 'ember';
-
-const {
-  Helper: { helper }
-} = Ember;
-
-export function formForMergeCustomFormField([formFieldsHash], { name, component }) {
-  formFieldsHash[name] = component;
-}
-
-export default helper(formForMergeCustomFormField);
+export { default, formForMergeCustomFormField } from 'ember-form-for/helpers/form-for/merge-custom-form-field';
