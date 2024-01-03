@@ -1,7 +1,5 @@
-import Ember from 'ember';
-import config from '../config/environment';
-
-const { merge, set } = Ember;
+import { inject as service } from '@ember/service';
+import Config from 'ember-config/config';
 
 const DEFAULT_CONFIG = {
   buttonClasses: ['form-button'],
@@ -12,19 +10,20 @@ const DEFAULT_CONFIG = {
   inputClasses: ['form-field--control'],
   labelClasses: ['form-field--label'],
   resetClasses: ['form-button--reset'],
-  submitClasses: ['form-button--submit']
+  submitClasses: ['form-button--submit'],
 };
 
 export function initialize(application) {
-  let formForConfig = merge(DEFAULT_CONFIG, config['ember-form-for']);
-  let configService = application.lookup('service:ember-form-for/config');
+  const configService = service('ember-form-for/config');
+  const mergedConfig = Config.get('ember-form-for') || {};
 
-  Object.keys(formForConfig).forEach((key) => {
-    set(configService, key, formForConfig[key]);
+  Object.assign(configService, {
+    ...DEFAULT_CONFIG,
+    ...mergedConfig,
   });
 }
 
 export default {
   name: 'form-for-initializer',
-  initialize
+  initialize,
 };
