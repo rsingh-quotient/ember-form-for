@@ -1,6 +1,6 @@
 import Ember from 'ember';
 import TextField from './text-field';
-import { toDateString } from '../../../addon/utils/date';
+import { toDateString } from '../../utils/date';
 
 const { isEmpty } = Ember;
 

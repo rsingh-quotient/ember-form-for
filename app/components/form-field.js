@@ -1,15 +1,13 @@
 import Ember from 'ember';
 import layout from '../templates/components/form-field';
 
-import { humanize } from '../../addon/utils/strings';
+import { humanize } from '../utils/strings';
 
 const {
   Component,
   String: { dasherize },
   assert,
   computed,
-  computed: { notEmpty, or, reads },
-  get,
   getWithDefault,
   guidFor,
   inject: { service },
@@ -19,6 +17,8 @@ const {
   observer,
   set
 } = Ember;
+import { or, reads, notEmpty } from '@ember/object/computed';
+import { get } from '@ember/object';
 
 const FormFieldComponent = Component.extend({
   layout,
@@ -164,14 +164,14 @@ const FormFieldComponent = Component.extend({
   },
 
   value: computed('rawValue', function() {
-    let serializeValue = getWithDefault(this, 'serializeValue', (value) => value);
+    let serializeValue = get(this, 'serializeValue') || ((value) => (value));
     return serializeValue(get(this, 'rawValue'));
   }),
 
   actions: {
     processUpdate(object, propertyName, value) {
       let rawValue = get(this, 'rawValue');
-      let deserializeValue = getWithDefault(this, 'deserializeValue', (value) => value);
+      let deserializeValue = get(this, 'deserializeValue') || ((value) => (value));
       get(this, 'update')(object, propertyName, deserializeValue(value, rawValue));
     }
   }

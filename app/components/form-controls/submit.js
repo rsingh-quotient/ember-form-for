@@ -1,9 +1,11 @@
 import Ember from 'ember';
 import EmberObject from '@ember/object';
 import Button from './button';
-import layout from 'ember-form-for/templates/components/form-controls/submit';
+import layout from '../../templates/components/form-controls/submit';
 
-const { computed: { alias }, PromiseProxyMixin, RSVP, computed, observer } = Ember;
+const { PromiseProxyMixin, RSVP, computed, observer } = Ember;
+
+import { alias } from '@ember/object/computed';
 
 const SubmitButton = Button.extend({
   layout,

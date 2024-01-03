@@ -7,12 +7,12 @@ const {
   Component,
   String: { dasherize },
   computed,
-  computed: { or },
   get,
   inject: { service },
   isPresent,
   set
 } = Ember;
+import { or } from '@ember/object/computed';
 
 const RadioFieldComponent = Component.extend({
   tagName: '',
