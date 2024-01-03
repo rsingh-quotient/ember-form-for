@@ -1,1 +1,5 @@
-export { default } from 'ember-form-for/components/form-fields/range-field';
+import TextField from './text-field';
+
+export default TextField.extend({
+  control: 'one-way-range'
+});

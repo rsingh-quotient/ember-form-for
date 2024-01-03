@@ -1,1 +1,5 @@
-export { default } from 'ember-form-for/components/form-fields/color-field';
+import TextField from './text-field';
+
+export default TextField.extend({
+  control: 'one-way-color'
+});
