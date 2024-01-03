@@ -1,5 +1,5 @@
 import { inject as service } from '@ember/service';
-import Config from 'ember-config/config';
+import config from '../config/environment';
 
 const DEFAULT_CONFIG = {
   buttonClasses: ['form-button'],
@@ -15,11 +15,10 @@ const DEFAULT_CONFIG = {
 
 export function initialize(application) {
   const configService = service('ember-form-for/config');
-  const mergedConfig = Config.get('ember-form-for') || {};
 
   Object.assign(configService, {
     ...DEFAULT_CONFIG,
-    ...mergedConfig,
+    ...(config || {})
   });
 }
 
