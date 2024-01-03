@@ -1,0 +1,28 @@
+{{#form-field this.propertyName
+    tagName="fieldset"
+    class="radio-group"
+    classNames=this.fieldClasses
+    errorClasses=this.errorClasses
+    hintClasses=this.hintClasses
+    inputClasses=this.inputClasses
+    labelClasses=this.labelClasses
+    object=this.object
+    hint=this.hint
+    form=this.form
+    label=this.label as |f|}}
+  {{form-label f.labelText required=this.required tagName="legend"}}
+
+  <ul>
+    {{#each this.options as |option|}}
+      {{form-fields/radio-field this.propertyName option
+          disabled=this.disabled
+          tagName="li"
+          object=this.object
+          update=(action this.update)
+      }}
+    {{/each}}
+  </ul>
+
+  {{f.errors}}
+  {{f.hint}}
+{{/form-field}}

@@ -1,0 +1,13 @@
+{{#if hasBlock}}
+  {{yield this this.activePromise}}
+{{else}}
+  {{#if this.activePromise.isPending}}
+    {{if this.pending this.pending this.default}}
+  {{else if this.activePromise.isFulfilled}}
+    {{if this.fulfilled this.fulfilled this.default}}
+  {{else if this.activePromise.isRejected}}
+    {{if this.rejected this.rejected this.default}}
+  {{else}}
+    {{this.default}}
+  {{/if}}
+{{/if}}

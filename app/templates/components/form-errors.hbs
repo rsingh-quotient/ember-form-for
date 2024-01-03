@@ -1,0 +1,17 @@
+{{#if this.errors}}
+  {{#form-for/custom-tag tagName=this.errorsTagName class=this.joinedErrorClasses}}
+    {{#each this.limitedErrors as |error index|}}
+      {{#form-for/custom-tag tagName=this.messageTagName id=(concat this.errorId "-" index) role="alert"}}
+        {{#if hasBlock}}
+          {{yield error}}
+        {{else}}
+          {{#if error.message}}
+            {{error.message}}
+          {{else}}
+            {{error}}
+          {{/if}}
+        {{/if}}
+      {{/form-for/custom-tag}}
+    {{/each}}
+  {{/form-for/custom-tag}}
+{{/if}}

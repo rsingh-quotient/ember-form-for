@@ -1,0 +1,39 @@
+{{#form-field this.propertyName
+    class="textarea-field"
+    classNames=this.fieldClasses
+    errorClasses=this.errorClasses
+    hintClasses=this.hintClasses
+    inputClasses=this.inputClasses
+    labelClasses=this.labelClasses
+    object=this.object
+    hint=this.hint
+    form=this.form
+    label=this.label
+    control=this.control
+    update=(action this.update) as |f|}}
+  {{f.label required=this.required}}
+  {{f.control
+      accesskey=this.accesskey
+      autocomplete=this.autocomplete
+      autofocus=this.autofocus
+      autosave=this.autosave
+      cols=this.cols
+      dir=this.dir
+      disabled=this.disabled
+      hidden=this.hidden
+      inputmode=this.inputmode
+      lang=this.lang
+      list=this.list
+      maxlength=this.maxlength
+      placeholder=this.placeholder
+      readonly=this.readonly
+      required=this.required
+      rows=this.rows
+      spellcheck=this.spellcheck
+      tabindex=this.tabindex
+      title=this.title
+      wrap=this.wrap
+  }}
+  {{f.errors}}
+  {{f.hint}}
+{{/form-field}}

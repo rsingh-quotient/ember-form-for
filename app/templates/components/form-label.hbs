@@ -1,0 +1,6 @@
+{{#if hasBlock}}
+  {{yield}}
+{{else}}
+  {{this.label}}
+{{/if}}
+{{#if this.required}}<span class="star">*</span>{{/if}}
