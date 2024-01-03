@@ -1,1 +1,8 @@
-export { default } from 'ember-form-for/services/ember-form-for/config';
+import Ember from 'ember';
+
+const {
+  Service
+} = Ember;
+
+export default Service.extend({
+});
