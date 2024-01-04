@@ -6,9 +6,10 @@ const {
   get,
   inject: { service },
   isPresent,
-  run: { schedule },
   set
 } = Ember;
+
+import { schedule } from '@ember/runloop';
 
 const FormForComponent = Component.extend({
   layout,
