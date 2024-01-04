@@ -1,19 +1,14 @@
-import Ember from 'ember';
+import Component from '@ember/component';
+import { get, computed } from '@ember/object';
 import layout from '../templates/components/form-errors';
-
-const {
-  Component,
-  computed,
-  get
-} = Ember;
 
 export default Component.extend({
   layout,
   tagName: '',
 
   limitedErrors: computed('errors.[]', 'maxErrors', function() {
-    let errors = get(this, 'errors');
-    let maxErrors = get(this, 'maxErrors');
+    let errors = this.errors;
+    let maxErrors = this.maxErrors;
 
     if (maxErrors) {
       return errors.slice(0, maxErrors);
@@ -27,6 +22,6 @@ export default Component.extend({
   }),
 
   joinedErrorClasses: computed('errorClasses', function() {
-    return (get(this, 'errorClasses') || []).join(' ');
+    return (this.errorClasses || []).join(' ');
   })
 });

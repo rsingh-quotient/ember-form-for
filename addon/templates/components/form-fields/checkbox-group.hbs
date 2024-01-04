@@ -15,16 +15,7 @@
 
   <ul>
     {{#each this.options as |option|}}
-      {{form-fields/checkbox-group/option
-          object=this.object
-          propertyName=this.propertyName
-          option=option
-          update=(action "updateSelection" option)
-          disabled=this.disabled
-          dir=this.dir
-          lang=this.lang
-          value=option
-      }}
+      <FormFields::CheckboxGroup::Option @object={{this.object}} @propertyName={{this.propertyName}} @option={{option}} @update={{action "updateSelection" option}} @disabled={{this.disabled}} @dir={{this.dir}} @lang={{this.lang}} @value={{option}} />
     {{/each}}
   </ul>
 

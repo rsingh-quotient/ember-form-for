@@ -1,10 +1,6 @@
-import Ember from 'ember';
+import Component from '@ember/component';
+import { get } from '@ember/object';
 import layout from '../../templates/components/form-fields/checkbox-group';
-
-const {
-  Component,
-  get
-} = Ember;
 
 const CheckboxGroupComponent = Component.extend({
   tagName: '',
@@ -19,8 +15,8 @@ const CheckboxGroupComponent = Component.extend({
         selection.removeObject(value);
       }
 
-      if (this.get('update') !== undefined) {
-        this.get('update')(object, propertyName, selection);
+      if (this.update !== undefined) {
+        this.update(object, propertyName, selection);
       }
     }
   }

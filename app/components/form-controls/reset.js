@@ -5,8 +5,8 @@ export default ButtonComponent.extend({
 
   click(e, ...args) {
     e.preventDefault();
-    if (this.get('reset') !== undefined) {
-      this.get('reset')(...args);
+    if (this.reset !== undefined) {
+      this.reset(...args);
     }
   }
 });

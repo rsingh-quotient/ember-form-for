@@ -1,7 +1,7 @@
 {{#if this.errors}}
-  {{#form-for/custom-tag tagName=this.errorsTagName class=this.joinedErrorClasses}}
+  <FormFor::CustomTag @tagName={{this.errorsTagName}} @class={{this.joinedErrorClasses}}>
     {{#each this.limitedErrors as |error index|}}
-      {{#form-for/custom-tag tagName=this.messageTagName id=(concat this.errorId "-" index) role="alert"}}
+      <FormFor::CustomTag @tagName={{this.messageTagName}} @id={{concat this.errorId "-" index}} @role="alert">
         {{#if this.hasBlock}}
           {{yield error}}
         {{else}}
@@ -11,7 +11,7 @@
             {{error}}
           {{/if}}
         {{/if}}
-      {{/form-for/custom-tag}}
+      </FormFor::CustomTag>
     {{/each}}
-  {{/form-for/custom-tag}}
+  </FormFor::CustomTag>
 {{/if}}

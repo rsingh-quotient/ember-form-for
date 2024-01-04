@@ -13,34 +13,8 @@
     label=this.label
     control=this.control
     update=(action this.update) as |f|}}
-  {{f.label required=this.required}}
-  {{f.control
-      accept=this.accept
-      accesskey=this.accesskey
-      autocomplete=this.autocomplete
-      autofocus=this.autofocus
-      autosave=this.autosave
-      dir=this.dir
-      disabled=this.disabled
-      hidden=this.hidden
-      inputmode=this.inputmode
-      lang=this.lang
-      list=this.list
-      max=this.max
-      maxlength=this.maxlength
-      min=this.min
-      minlength=this.minlength
-      multiple=this.multiple
-      pattern=this.pattern
-      placeholder=this.placeholder
-      readonly=this.readonly
-      required=this.required
-      size=this.size
-      spellcheck=this.spellcheck
-      step=this.step
-      tabindex=this.tabindex
-      title=this.title
-  }}
+  <f.label @required={{this.required}} />
+  <f.control @accept={{this.accept}} @accesskey={{this.accesskey}} @autocomplete={{this.autocomplete}} @autofocus={{this.autofocus}} @autosave={{this.autosave}} @dir={{this.dir}} @disabled={{this.disabled}} @hidden={{this.hidden}} @inputmode={{this.inputmode}} @lang={{this.lang}} @list={{this.list}} @max={{this.max}} @maxlength={{this.maxlength}} @min={{this.min}} @minlength={{this.minlength}} @multiple={{this.multiple}} @pattern={{this.pattern}} @placeholder={{this.placeholder}} @readonly={{this.readonly}} @required={{this.required}} @size={{this.size}} @spellcheck={{this.spellcheck}} @step={{this.step}} @tabindex={{this.tabindex}} @title={{this.title}} />
   {{f.errors}}
   {{f.hint}}
 {{/form-field}}

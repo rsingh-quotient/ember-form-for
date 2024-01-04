@@ -11,27 +11,8 @@
     label=this.label
     control=this.control
     update=(action this.update) as |f|}}
-  {{f.label required=this.required}}
-  {{f.control
-      accesskey=this.accesskey
-      autofocus=this.autofocus
-      dir=this.dir
-      disabled=this.disabled
-      groupLabelPath=this.groupLabelPath
-      hidden=this.hidden
-      includeBlank=this.includeBlank
-      prompt=this.prompt
-      promptIsSelectable=this.promptIsSelectable
-      lang=this.lang
-      multiple=this.multiple
-      options=this.options
-      optionValuePath=this.optionValuePath
-      optionTargetPath=this.optionTargetPath
-      optionLabelPath=this.optionLabelPath
-      required=this.required
-      search=this.search
-      tabindex=this.tabindex
-  }}
+  <f.label @required={{this.required}} />
+  <f.control @accesskey={{this.accesskey}} @autofocus={{this.autofocus}} @dir={{this.dir}} @disabled={{this.disabled}} @groupLabelPath={{this.groupLabelPath}} @hidden={{this.hidden}} @includeBlank={{this.includeBlank}} @prompt={{this.prompt}} @promptIsSelectable={{this.promptIsSelectable}} @lang={{this.lang}} @multiple={{this.multiple}} @options={{this.options}} @optionValuePath={{this.optionValuePath}} @optionTargetPath={{this.optionTargetPath}} @optionLabelPath={{this.optionLabelPath}} @required={{this.required}} @search={{this.search}} @tabindex={{this.tabindex}} />
   {{f.errors}}
   {{f.hint}}
 {{/form-field}}

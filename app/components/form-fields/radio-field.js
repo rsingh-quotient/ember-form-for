@@ -1,17 +1,12 @@
-import Ember from 'ember';
+import Component from '@ember/component';
+import { dasherize } from '@ember/string';
+import { inject as service } from '@ember/service';
+import { isPresent } from '@ember/utils';
+import { set, get, computed } from '@ember/object';
 import layout from '../../templates/components/form-fields/radio-field';
 
 import { humanize } from '../../utils/strings';
 
-const {
-  Component,
-  String: { dasherize },
-  computed,
-  get,
-  inject: { service },
-  isPresent,
-  set
-} = Ember;
 import { or } from '@ember/object/computed';
 
 const RadioFieldComponent = Component.extend({
@@ -29,20 +24,20 @@ const RadioFieldComponent = Component.extend({
   },
 
   labelText: computed('value', 'label', 'i18n.locale', function() {
-    let i18n = get(this, 'i18n');
-    let label = get(this, 'label');
+    let i18n = this.i18n;
+    let label = this.label;
 
     if (isPresent(label)) {
       return label;
     } else if (isPresent(i18n)) {
-      return i18n.t(get(this, 'labelI18nKey'));
+      return i18n.t(this.labelI18nKey);
     } else {
-      return get(this, 'label') || humanize(get(this, 'value'));
+      return this.label || humanize(this.value);
     }
   }),
 
   labelI18nKey: computed('config.i18nKeyPrefix', 'modelName', 'propertyName', 'value', function() {
-    let value = get(this, 'value');
+    let value = this.value;
 
     if (isPresent(value)) {
       value = dasherize(value.toString());
@@ -50,8 +45,8 @@ const RadioFieldComponent = Component.extend({
 
     return [
       get(this, 'config.i18nKeyPrefix'),
-      dasherize(get(this, 'modelName') || ''),
-      dasherize(get(this, 'propertyName') || ''),
+      dasherize(this.modelName || ''),
+      dasherize(this.propertyName || ''),
       value
     ].filter((x) => !!x)
       .join('.');
