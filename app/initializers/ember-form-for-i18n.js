@@ -2,7 +2,6 @@ import Ember from 'ember';
 const { getOwner } = Ember;
 
 export function initialize(app) {
-  window.Ember = Ember;
   // HACK: This can be undefined in the FastBoot environment.
   let owner = getOwner(app) || app.__container__;
   if (!owner) {
