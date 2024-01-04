@@ -11,7 +11,7 @@
     label=this.labelText
     control=this.control
     update=(action this.update) as |f|}}
-  {{#f.label required=this.required}}
+    <label required={{this.required}} >
     {{f.control
         option=this.value
         accesskey=this.accesskey
@@ -28,7 +28,7 @@
         title=this.title
     }}
     {{f.labelText}}
-  {{/f.label}}
+  </label>
   {{f.errors}}
   {{f.hint}}
 {{/form-field}}
