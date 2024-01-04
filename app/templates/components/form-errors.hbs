@@ -2,7 +2,7 @@
   {{#form-for/custom-tag tagName=this.errorsTagName class=this.joinedErrorClasses}}
     {{#each this.limitedErrors as |error index|}}
       {{#form-for/custom-tag tagName=this.messageTagName id=(concat this.errorId "-" index) role="alert"}}
-        {{#if hasBlock}}
+        {{#if this.hasBlock}}
           {{yield error}}
         {{else}}
           {{#if error.message}}
