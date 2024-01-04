@@ -19,6 +19,10 @@ export default Component.extend({
       return errors.slice(0, maxErrors);
     }
 
+    if (typeof errors === 'string') {
+      errors = [errors];
+    }
+
     return errors;
   }),
 
